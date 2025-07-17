@@ -3,7 +3,12 @@ from fastapi.middleware.cors import CORSMiddleware
 import openai
 import os
 
-app = FastAPI()
+app = FastAPI(
+    title="IA JW API",
+    version="1.0",
+    docs_url="/docs",       # Isso ativa o Swagger UI
+    redoc_url="/redoc",     # Isso ativa o Redoc (opcional)
+)
 
 # 🔐 Habilita CORS para qualquer origem (ou especifique seu domínio do Vercel)
 app.add_middleware(
