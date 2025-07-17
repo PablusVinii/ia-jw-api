@@ -1,10 +1,20 @@
 from fastapi import FastAPI, Request
+from fastapi.middleware.cors import CORSMiddleware
 import openai
 import os
 
 app = FastAPI()
 
-openai.api_key = os.getenv("OPENAI_API_KEY") 
+# 🔐 Habilita CORS para qualquer origem (ou especifique seu domínio do Vercel)
+app.add_middleware(
+    CORSMiddleware,
+    allow_origins=["*"],  # substitua por ["https://seuprojeto.vercel.app"] se quiser mais seguro
+    allow_credentials=True,
+    allow_methods=["*"],
+    allow_headers=["*"],
+)
+
+openai.api_key = os.getenv("OPENAI_API_KEY")
 
 @app.post("/gerar-discurso")
 async def gerar_discurso(req: Request):
