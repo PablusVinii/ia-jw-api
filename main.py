@@ -11,6 +11,7 @@ if __name__ == "__main__":
     uvicorn.run("main:app", host="0.0.0.0", port=port)
 
 app = FastAPI(
+    print("FastAPI inicializado")
     title="IA JW API",
     version="1.0",
     docs_url="/docs",       # Isso ativa o Swagger UI
