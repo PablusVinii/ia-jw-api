@@ -8,7 +8,7 @@ app = FastAPI()
 # 🔐 Habilita CORS para qualquer origem (ou especifique seu domínio do Vercel)
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=["*"],  # substitua por ["https://seuprojeto.vercel.app"] se quiser mais seguro
+    allow_origins=["https://ia-jw-talks-y1ki.vercel.app"],  # substitua por ["https://seuprojeto.vercel.app"] se quiser mais seguro
     allow_credentials=True,
     allow_methods=["*"],
     allow_headers=["*"],
